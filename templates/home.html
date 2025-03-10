@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huda Qadir - Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+   <div class="logo">&lt;Huda Qadir/&gt;</div>
+
+    <ul class="nav-links">
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+    </ul>
+
+
+    <!-- Chat Button -->
+    <button id="chat-btn" class="chat-button">Let's Chat 💬</button>
+</nav>
+
+       <!-- Chat Box -->
+    <div id="chat-box" class="chat-hidden">
+        <div class="chat-header">
+            Chat
+            <button id="close-chat" class="close-btn">✖</button>
+        </div>
+        <div class="chat-body">
+            <textarea id="chat-message" placeholder="Type your message..."></textarea>
+            <button id="send-chat" class="send-btn">Send</button>
+        </div>
+    </div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Hey, I'm Huda.</h1>
+            <p class="subtitle">A Beginner Python Developer</p>
+            <p class="description">I'm a passionate learner exploring Python development and building projects along the way.</p>
+
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/huda-qadir/" target="_blank"><img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn"></a>
+                <a href="https://github.com/hhudaa" target="_blank"><img src="{{ url_for('static', filename='github.png') }}" alt="GitHub"></a>
+                <a href="mailto:your-email@example.com"><img src="{{ url_for('static', filename='email.png') }}" alt="Email"></a>
+            </div>
+
+            <!-- Buttons -->
+            <div class="buttons">
+                <a href="#contact" class="btn contact-btn">Contact Me</a>
+                <a href="{{ url_for('static', filename='Huda_Qadir_CV.pdf') }}" download class="btn resume-btn">Download My Resume</a>
+            </div>
+        </div>
+
+        <!-- Profile Picture -->
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='profile.png') }}" alt="Huda Qadir">
+        </div>
+    </section>
+
+</body>
+</html>
+
+ <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <h3>💻 Programming Concepts</h3>
+                <p>Basic understanding of OOP and Data Structures (lists, dictionaries, tuples).</p>
+            </div>
+            <div class="skill-card">
+                <h3>⚙️ Tools</h3>
+                <p>VS Code, Jupyter Notebook.</p>
+            </div>
+            <div class="skill-card">
+                <h3>🔓 Problem-Solving</h3>
+                <p>Still developing problem-solving skills, focusing on breaking down tasks into smaller steps.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+<section id="certifications">
+    <h2 class="section-title">Licenses & Certifications</h2>
+    <div class="certification-card">
+        <img src="{{ url_for('static', filename='certificate.png') }}"
+             alt="Ultimate Python Bootcamp Certificate"
+             class="certificate-img" onclick="openModal()">
+        <div class="certification-info">
+            <h3>Ultimate Python Bootcamp</h3>
+            <p>DataCrumbs</p>
+            <p class="issued-date">Issued Jan 2025</p>
+            <p class="certification-skill">💠 Python (Programming Language)</p>
+        </div>
+    </div>
+</section>
+
+<!-- Modal (Popup) -->
+<div id="certificateModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="certificateImage">
+</div>
+
+    <script>
+    // Open modal
+    function openModal() {
+        document.getElementById("certificateModal").style.display = "flex";
+        document.getElementById("certificateImage").src = "{{ url_for('static', filename='certificate.png') }}";
+    }
+
+    // Close modal
+    function closeModal() {
+        document.getElementById("certificateModal").style.display = "none";
+    }
+</script>
+
+<!-- Projects Section -->
+<section id="projects">
+    {% include 'projects.html' %}
+</section>
+
+    <!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title">Reach Out to me!</h2>
+
+        <p class="contact-role">Python Intern | @DataCrumbs</p>
+
+        <p class="contact-location">📍 Remote</p>
+
+        <p class="contact-opportunities">Open for opportunities: Yes</p>
+
+        <div class="social-links">
+            <a href="https://linkedin.com/in/huda-qadir" target="_blank">
+                <img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/hhudaa" target="_blank">
+                <img src="{{ url_for('static', filename='github.png') }}" alt="GitHub">
+            </a>
+            <a href="mailto:hudaqadir47@gmail.com">
+                <img src="{{ url_for('static', filename='email.png') }}" alt="Email">
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+
+
+
